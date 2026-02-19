@@ -32,6 +32,9 @@
                     <x-nav-link :href="route('user.dashboard')" :active="request()->routeIs('user.dashboard')" class="text-base font-medium">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('daily_earnings.index')" :active="request()->routeIs('daily_earnings.*')" class="text-base font-medium">
+                        {{ __('Tabungan Servis') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('consultation.create')" :active="request()->routeIs('consultation.create')" class="text-base font-medium">
                         {{ __('Konsultasi Baru') }}
                     </x-nav-link>
@@ -109,6 +112,9 @@
             @else
                 <x-responsive-nav-link :href="route('user.dashboard')" :active="request()->routeIs('user.dashboard')">
                     {{ __('Dashboard') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('daily_earnings.index')" :active="request()->routeIs('daily_earnings.*')">
+                    {{ __('Tabungan Servis') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('consultation.create')" :active="request()->routeIs('consultation.create')">
                     {{ __('Konsultasi Baru') }}

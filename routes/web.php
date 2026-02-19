@@ -50,6 +50,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/consultation', [\App\Http\Controllers\ConsultationController::class, 'store'])->name('consultation.store');
     Route::get('/consultation/{id}', [\App\Http\Controllers\ConsultationController::class, 'show'])->name('consultation.show');
     Route::get('/consultation/{id}/pdf', [\App\Http\Controllers\ConsultationController::class, 'exportPdf'])->name('consultation.pdf'); // PDF Export
+    
+    // Daily Earnings / Tabungan Servis
+    Route::post('/daily_earnings/reset', [\App\Http\Controllers\DailyEarningController::class, 'resetHistory'])->name('daily_earnings.reset');
+    Route::resource('daily_earnings', \App\Http\Controllers\DailyEarningController::class)->only(['index', 'create', 'store']);
 });
 
 // Admin routes are now grouped above
