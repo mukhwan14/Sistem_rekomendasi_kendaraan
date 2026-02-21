@@ -25,6 +25,9 @@
                     <x-nav-link :href="route('admin.diagnosis_questions.index')" :active="request()->routeIs('admin.diagnosis_questions.*')" class="text-base font-medium">
                         {{ __('Pertanyaan Diagnosa') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.*')" class="text-base font-medium">
+                        {{ __('Kelola Servis') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('admin.consultations.index')" :active="request()->routeIs('admin.consultations.*')" class="text-base font-medium">
                         {{ __('Laporan Konsultasi') }}
                     </x-nav-link>
@@ -105,6 +108,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.diagnosis_questions.index')" :active="request()->routeIs('admin.diagnosis_questions.*')">
                     {{ __('Pertanyaan Diagnosa') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.*')">
+                    {{ __('Kelola Servis') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.consultations.index')" :active="request()->routeIs('admin.consultations.*')">
                     {{ __('Laporan Konsultasi') }}

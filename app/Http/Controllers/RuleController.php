@@ -27,9 +27,14 @@ class RuleController extends Controller
             'name' => 'required|string',
             'description' => 'nullable|string',
             'recommendation' => 'required|string',
+            'action_list' => 'required|string',
             'priority' => 'required|integer',
             'is_active' => 'boolean',
         ]);
+
+        // Convert action list string to array of actions, handling Windows and Linux newline properly
+        $actionList = array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $validated['action_list']))));
+        $validated['action_list'] = $actionList;
 
         \App\Models\Rule::create($validated);
 
@@ -58,12 +63,17 @@ class RuleController extends Controller
             'name' => 'required|string',
             'description' => 'nullable|string',
             'recommendation' => 'required|string',
+            'action_list' => 'required|string',
             'priority' => 'required|integer',
             'is_active' => 'boolean',
         ]);
 
         // Handle checkbox unregulated value
         $validated['is_active'] = $request->has('is_active');
+
+        // Convert action list string to array of actions, handling Windows and Linux newline properly
+        $actionList = array_values(array_filter(array_map('trim', preg_split('/\r\n|\r|\n/', $validated['action_list']))));
+        $validated['action_list'] = $actionList;
 
         $rule->update($validated);
 

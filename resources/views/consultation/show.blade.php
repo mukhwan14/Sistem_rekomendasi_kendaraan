@@ -125,7 +125,13 @@
                                                 <div>
                                                     <span class="font-bold text-xs uppercase text-green-600 tracking-wider">Solusi Perbaikan:</span>
                                                     <ul class="mt-2 space-y-2">
-                                                        @foreach($rule->action_list as $action)
+                                                        @php
+                                                            $actions = is_array($rule->action_list) ? $rule->action_list : (json_decode($rule->action_list, true) ?? []);
+                                                            if (!is_array($actions)) {
+                                                                $actions = [$rule->action_list]; // fallback if it's just a plain string
+                                                            }
+                                                        @endphp
+                                                        @foreach($actions as $action)
                                                             <li class="flex items-start gap-2 text-sm text-gray-800">
                                                                 <svg class="w-4 h-4 text-green-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                                                 {{ $action }}

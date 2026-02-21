@@ -16,9 +16,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('dashboard');
     
     // Admin Resources
     Route::resource('rules', \App\Http\Controllers\RuleController::class);
@@ -26,6 +24,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::resource('rules', \App\Http\Controllers\RuleController::class);
     Route::resource('rule_conditions', \App\Http\Controllers\RuleConditionController::class)->only(['create', 'store', 'destroy']);
     Route::resource('diagnosis_questions', \App\Http\Controllers\Admin\DiagnosisQuestionController::class);
+    Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class);
     
     // Monitoring & Reports
     Route::get('/consultations/export', [\App\Http\Controllers\Admin\ConsultationReportController::class, 'export'])->name('consultations.export');
@@ -33,9 +32,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 });
 
 Route::middleware(['auth', 'role:user'])->prefix('user')->name('user.')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('user.dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [\App\Http\Controllers\UserDashboardController::class, 'index'])->name('dashboard');
 });
 
 Route::middleware('auth')->group(function () {

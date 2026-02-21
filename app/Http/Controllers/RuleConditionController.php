@@ -11,10 +11,10 @@ class RuleConditionController extends Controller
         $rule_id = $request->query('rule_id');
         $rule = \App\Models\Rule::findOrFail($rule_id);
         
-        // Get existing variables from Diagnosis Questions to suggest to admin
-        $existingVariables = \App\Models\DiagnosisQuestion::pluck('code')->toArray();
+        // Pass the full objects to build a proper select dropdown dynamically
+        $variables = \App\Models\DiagnosisQuestion::orderBy('order')->get(['code', 'question', 'type', 'options']);
         
-        return view('admin.rule_conditions.create', compact('rule', 'existingVariables'));
+        return view('admin.rule_conditions.create', compact('rule', 'variables'));
     }
 
     public function store(Request $request)
