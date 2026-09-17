@@ -19,7 +19,19 @@ Sistem ini bertujuan untuk:
 - Menentukan persentase dana servis secara otomatis berdasarkan pendapatan harian.
 - Menampilkan perkembangan dana servis melalui dashboard.
 - Memberikan rekomendasi terkait kondisi kendaraan melalui fitur konsultasi.
+  
+## 💡 Project Highlights
 
+Project ini menunjukkan penerapan beberapa konsep dalam pengembangan sistem, antara lain:
+
+- **Decision Support System** untuk membantu menentukan alokasi dana servis kendaraan.
+- **Forward Chaining** untuk menentukan persentase dana berdasarkan kondisi pendapatan harian.
+- **Rule-Based Decision Making** menggunakan tiga aturan pendapatan (R1, R2, dan R3).
+- **CRUD Management** untuk pencatatan pendapatan dan pengelolaan dana servis.
+- **Database Management** menggunakan MySQL.
+- **Web Application Development** menggunakan Laravel.
+- **System Testing** menggunakan 25 sampel data pendapatan harian dengan hasil akurasi perhitungan sebesar 100%.
+  
 ## ⚙️ Cara Kerja Forward Chaining
 
 AutoExpert menerapkan metode **Forward Chaining** untuk menentukan persentase dana yang perlu dialokasikan sebagai dana servis kendaraan berdasarkan pendapatan harian pengguna.
