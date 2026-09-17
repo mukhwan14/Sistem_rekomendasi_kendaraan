@@ -45,7 +45,11 @@ Pendapatan tersebut menjadi fakta awal yang diproses oleh sistem:
 ```text
 Fakta:
 Pendapatan = Rp184.000
+```
 
+Selanjutnya sistem mencocokkan fakta tersebut dengan setiap aturan:
+
+```text
 R1 → Rp184.000 < Rp150.000
      Tidak terpenuhi
 
@@ -54,12 +58,26 @@ R2 → Rp150.000 ≤ Rp184.000 ≤ Rp250.000
 
 R3 → Rp184.000 > Rp250.000
      Tidak terpenuhi
+```
+
+Karena kondisi pada **Rule R2** terpenuhi, sistem menentukan bahwa persentase dana servis yang dialokasikan adalah **10%**.
+
+Perhitungan dana servis:
+
+```text
 Rp184.000 × 10% = Rp18.400
+```
+
+Hasil proses:
+
+```text
 Pendapatan  : Rp184.000
 Rule        : R2
 Persentase  : 10%
 Dana Servis : Rp18.400
+```
 
+Dengan mekanisme tersebut, sistem dapat menentukan alokasi dana servis secara otomatis berdasarkan pendapatan harian pengguna tanpa pengguna harus menentukan persentasenya secara manual.
 
 ## 🚀 Fitur Utama
 
@@ -135,13 +153,23 @@ Berdasarkan hasil pengujian, sistem berhasil mengidentifikasi rule yang sesuai d
 
 ## 📷 Tampilan Sistem
 
-Screenshot aplikasi akan ditambahkan pada bagian ini, meliputi:
+### Dashboard
 
-- Dashboard
-- Input Pendapatan
-- Tabungan Servis
-- Konsultasi Kendaraan
-- Hasil Konsultasi
+Dashboard menampilkan ringkasan pendapatan dan dana servis kendaraan pengguna.
+
+![Dashboard](screenshots/dashboard.png)
+
+### Input Pendapatan Harian
+
+Halaman ini digunakan untuk mencatat pendapatan harian pengguna.
+
+![Input Pendapatan](screenshots/input_setoran_harian.png)
+
+### Tabungan Servis
+
+Halaman ini menampilkan saldo dana servis dan riwayat alokasi dana berdasarkan pendapatan harian.
+
+![Tabungan Servis](screenshots/tabungan_service.png)
 
 ## 📂 Struktur Project
 
@@ -161,39 +189,45 @@ AutoExpert/
 ├── artisan
 ├── composer.json
 └── package.json
+```
 
+## 🚀 Instalasi
+
+Clone repository:
+
+```bash
 git clone https://github.com/mukhwan14/Sistem_rekomendasi_kendaraan.git
 cd Sistem_rekomendasi_kendaraan
+```
+
+Install dependency:
+
+```bash
 composer install
 npm install
+```
+
+Buat file environment:
+
+```bash
 cp .env.example .env
 php artisan key:generate
+```
+
+Jalankan migrasi database:
+
+```bash
 php artisan migrate
+```
+
+Jalankan aplikasi:
+
+```bash
 php artisan serve
+```
+
+Untuk menjalankan Vite:
+
+```bash
 npm run dev
-
----
-
-## 2. Ada beberapa bagian yang sengaja kita buat bertahap
-
-Perhatikan bagian:
-## 📷 Tampilan Sistem
-
-### Dashboard
-
-Dashboard menampilkan ringkasan pendapatan dan dana servis kendaraan pengguna.
-
-![Dashboard](screenshots/dashboard.png)
-
-### Input Pendapatan Harian
-
-Halaman ini digunakan untuk mencatat pendapatan harian pengguna.
-
-![Input Pendapatan](screenshots/input_setoran_harian.png)
-
-### Tabungan Servis
-
-Halaman ini menampilkan saldo dana servis dan riwayat alokasi dana berdasarkan pendapatan harian.
-
-![Tabungan Servis](screenshots/tabungan_service.png)
-
+```
