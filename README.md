@@ -158,13 +158,25 @@ npm run dev
 ## 2. Ada beberapa bagian yang sengaja kita buat bertahap
 
 Perhatikan bagian:
-
-```markdown
 ## 📷 Tampilan Sistem
 
-Screenshot aplikasi akan ditambahkan pada bagian ini
-<img width="1600" height="900" alt="Dashboard" src="https://github.com/user-attachments/assets/9cd42a27-ceff-48f2-8488-4be46d3a56fe" />
-<img width="1600" height="900" alt="Halaman Utama" src="https://github.com/user-attachments/assets/a5265e5b-c506-4c86-aabe-00bb2591e78a" />
+### Dashboard
+
+Dashboard menampilkan ringkasan pendapatan dan dana servis kendaraan pengguna.
+
+![Dashboard](screenshots/dashboard.png)
+
+### Input Pendapatan Harian
+
+Halaman ini digunakan untuk mencatat pendapatan harian pengguna.
+
+![Input Pendapatan](screenshots/input_setoran_harian.png)
+
+### Tabungan Servis
+
+Halaman ini menampilkan saldo dana servis dan riwayat alokasi dana berdasarkan pendapatan harian.
+
+![Tabungan Servis](screenshots/tabungan-service.png)
 
 
 
