@@ -174,6 +174,16 @@ Melalui pengembangan AutoExpert, beberapa hal yang dipelajari antara lain:
 - Membuat proses pencatatan dan pengelolaan data pendapatan secara terstruktur.
 - Melakukan pengujian sistem menggunakan metode **Black Box Testing**.
 - Menggunakan **Git dan GitHub** untuk version control dan pengelolaan repository.
+
+## 🔮 Future Development
+
+Beberapa pengembangan yang dapat dilakukan pada versi selanjutnya antara lain:
+
+- Menambahkan fitur **notifikasi pengingat servis kendaraan**.
+- Menambahkan analisis perkembangan dana servis dan pendapatan secara lebih detail.
+- Mengembangkan metode pengambilan keputusan dengan aturan yang lebih kompleks.
+- Mengembangkan aplikasi ke platform **mobile**.
+- Menambahkan integrasi dengan layanan atau bengkel untuk mendukung kebutuhan servis kendaraan.
   
 ## 📷 Tampilan Sistem
 
