@@ -22,25 +22,44 @@ Sistem ini bertujuan untuk:
 
 ## ⚙️ Cara Kerja Forward Chaining
 
-AutoExpert menggunakan metode **Forward Chaining** untuk menentukan persentase dana servis berdasarkan fakta berupa pendapatan harian pengguna.
+AutoExpert menerapkan metode **Forward Chaining** untuk menentukan persentase dana yang perlu dialokasikan sebagai dana servis kendaraan berdasarkan pendapatan harian pengguna.
 
-Aturan yang digunakan adalah:
+Proses Forward Chaining dimulai dari **fakta yang diketahui**, yaitu jumlah pendapatan harian. Fakta tersebut kemudian dicocokkan dengan kondisi pada aturan yang telah ditentukan. Jika kondisi suatu aturan terpenuhi, sistem menghasilkan kesimpulan berupa persentase dana yang harus dialokasikan untuk servis kendaraan.
 
-| Rule | Kondisi Pendapatan | Dana yang Dialokasikan |
-|------|--------------------|------------------------|
+### Aturan Sistem
+
+| Rule | Kondisi Pendapatan | Alokasi Dana Servis |
+|------|--------------------|---------------------|
 | R1 | Pendapatan < Rp150.000 | 15% |
 | R2 | Rp150.000 ≤ Pendapatan ≤ Rp250.000 | 10% |
 | R3 | Pendapatan > Rp250.000 | 5% |
 
-Contoh:
+### Contoh Proses Forward Chaining
 
-Jika pengguna memperoleh pendapatan sebesar **Rp127.000**, maka sistem mencocokkan fakta tersebut dengan **Rule R1**.
+Misalnya pengguna memasukkan pendapatan harian sebesar:
 
-Perhitungan:
+**Rp184.000**
 
-**Rp127.000 × 15% = Rp19.050**
+Pendapatan tersebut menjadi fakta awal yang diproses oleh sistem:
 
-Maka sistem secara otomatis mengalokasikan **Rp19.050** sebagai dana servis kendaraan.
+```text
+Fakta:
+Pendapatan = Rp184.000
+
+R1 → Rp184.000 < Rp150.000
+     Tidak terpenuhi
+
+R2 → Rp150.000 ≤ Rp184.000 ≤ Rp250.000
+     Terpenuhi
+
+R3 → Rp184.000 > Rp250.000
+     Tidak terpenuhi
+Rp184.000 × 10% = Rp18.400
+Pendapatan  : Rp184.000
+Rule        : R2
+Persentase  : 10%
+Dana Servis : Rp18.400
+
 
 ## 🚀 Fitur Utama
 
@@ -176,7 +195,5 @@ Halaman ini digunakan untuk mencatat pendapatan harian pengguna.
 
 Halaman ini menampilkan saldo dana servis dan riwayat alokasi dana berdasarkan pendapatan harian.
 
-![Tabungan Servis](screenshots/tabungan-service.png)
-
-
+![Tabungan Servis](screenshots/tabungan_service.png)
 
