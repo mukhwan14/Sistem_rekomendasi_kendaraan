@@ -163,6 +163,18 @@ Pengujian sistem dilakukan menggunakan **25 sampel data pendapatan harian** untu
 
 Berdasarkan hasil pengujian, sistem berhasil mengidentifikasi rule yang sesuai dan menghitung alokasi dana servis berdasarkan aturan yang telah ditentukan.
 
+## 📚 What I Learned
+
+Melalui pengembangan AutoExpert, beberapa hal yang dipelajari antara lain:
+
+- Menerapkan metode **Forward Chaining** dalam sistem berbasis aturan.
+- Memahami proses analisis kebutuhan dan perancangan sistem menggunakan pendekatan **Object-Oriented Analysis and Design (OOAD)**.
+- Mengembangkan aplikasi web menggunakan **Laravel**.
+- Mengelola data menggunakan **MySQL**.
+- Membuat proses pencatatan dan pengelolaan data pendapatan secara terstruktur.
+- Melakukan pengujian sistem menggunakan metode **Black Box Testing**.
+- Menggunakan **Git dan GitHub** untuk version control dan pengelolaan repository.
+  
 ## 📷 Tampilan Sistem
 
 ### Dashboard
