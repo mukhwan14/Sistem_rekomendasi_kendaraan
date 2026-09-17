@@ -1,59 +1,144 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# AutoExpert
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**AutoExpert** adalah sistem pendukung keputusan berbasis web yang dirancang untuk membantu pengemudi taksi online dalam mengalokasikan sebagian pendapatan harian sebagai dana servis kendaraan.
 
-## About Laravel
+Sistem ini menerapkan metode **Forward Chaining** untuk menentukan persentase dana yang perlu dialokasikan berdasarkan jumlah pendapatan harian pengguna.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📌 Latar Belakang
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Pendapatan pengemudi taksi online dapat berubah-ubah setiap hari. Kondisi tersebut dapat membuat pengelolaan dana untuk kebutuhan servis kendaraan menjadi kurang terencana.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+AutoExpert dikembangkan untuk membantu pengguna mengelola dana servis kendaraan dengan cara mencatat pendapatan harian dan secara otomatis menentukan jumlah dana yang perlu disisihkan berdasarkan aturan yang telah ditentukan.
 
-## Learning Laravel
+## 🎯 Tujuan
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Sistem ini bertujuan untuk:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Membantu pengguna mencatat pendapatan harian.
+- Membantu mengelola dana yang dialokasikan untuk servis kendaraan.
+- Menentukan persentase dana servis secara otomatis berdasarkan pendapatan harian.
+- Menampilkan perkembangan dana servis melalui dashboard.
+- Memberikan rekomendasi terkait kondisi kendaraan melalui fitur konsultasi.
 
-## Laravel Sponsors
+## ⚙️ Cara Kerja Forward Chaining
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+AutoExpert menggunakan metode **Forward Chaining** untuk menentukan persentase dana servis berdasarkan fakta berupa pendapatan harian pengguna.
 
-### Premium Partners
+Aturan yang digunakan adalah:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+| Rule | Kondisi Pendapatan | Dana yang Dialokasikan |
+|------|--------------------|------------------------|
+| R1 | Pendapatan < Rp150.000 | 15% |
+| R2 | Rp150.000 ≤ Pendapatan ≤ Rp250.000 | 10% |
+| R3 | Pendapatan > Rp250.000 | 5% |
 
-## Contributing
+Contoh:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Jika pengguna memperoleh pendapatan sebesar **Rp127.000**, maka sistem mencocokkan fakta tersebut dengan **Rule R1**.
 
-## Code of Conduct
+Perhitungan:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Rp127.000 × 15% = Rp19.050**
 
-## Security Vulnerabilities
+Maka sistem secara otomatis mengalokasikan **Rp19.050** sebagai dana servis kendaraan.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🚀 Fitur Utama
 
-## License
+### 1. Dashboard
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Menampilkan ringkasan kondisi keuangan pengguna, seperti:
+
+- Total tabungan servis
+- Jumlah hari menabung
+- Total pendapatan
+- Rekomendasi
+- Grafik pendapatan dan tabungan
+
+### 2. Input Pendapatan Harian
+
+Pengguna dapat memasukkan pendapatan yang diperoleh setiap hari.
+
+Data tersebut kemudian diproses oleh sistem menggunakan metode Forward Chaining untuk menentukan persentase dana servis.
+
+### 3. Tabungan Servis
+
+Menampilkan:
+
+- Saldo dana servis
+- Riwayat setoran
+- Pendapatan harian
+- Dana yang dialokasikan
+- Status dana servis
+
+### 4. Konsultasi Kendaraan
+
+Fitur tambahan yang memungkinkan pengguna memasukkan informasi kendaraan dan memperoleh rekomendasi terkait kondisi kendaraan.
+
+### 5. Riwayat Konsultasi
+
+Pengguna dapat melihat kembali hasil konsultasi kendaraan yang pernah dilakukan.
+
+## 🛠️ Teknologi yang Digunakan
+
+- **Laravel** — Framework pengembangan aplikasi web
+- **PHP** — Bahasa pemrograman
+- **MySQL** — Database
+- **Laragon** — Local development environment
+- **Tailwind CSS** — Styling antarmuka
+- **Vite** — Asset bundling dan development tool
+- **Git & GitHub** — Version control dan repository
+
+## 🗄️ Database
+
+Sistem menggunakan database MySQL untuk menyimpan data pengguna, pendapatan, aturan, serta data konsultasi.
+
+Beberapa tabel utama yang digunakan antara lain:
+
+- `users`
+- `pendapatan` / `incomes`
+- `rules`
+- `konsultasi` / `consultations`
+
+Struktur database digunakan untuk mendukung proses pencatatan pendapatan, perhitungan dana servis, penerapan aturan Forward Chaining, dan penyimpanan hasil konsultasi.
+
+## 🧪 Pengujian
+
+Pengujian sistem dilakukan menggunakan **25 sampel data pendapatan harian** untuk menguji penerapan metode Forward Chaining dan perhitungan dana servis.
+
+| Parameter | Hasil |
+|-----------|-------|
+| Jumlah Sampel | 25 |
+| Eksekusi Rule | Berhasil |
+| Perhitungan Dana | Akurat |
+| Tingkat Akurasi | 100% |
+
+Berdasarkan hasil pengujian, sistem berhasil mengidentifikasi rule yang sesuai dan menghitung alokasi dana servis berdasarkan aturan yang telah ditentukan.
+
+## 📷 Tampilan Sistem
+
+Screenshot aplikasi akan ditambahkan pada bagian ini, meliputi:
+
+- Dashboard
+- Input Pendapatan
+- Tabungan Servis
+- Konsultasi Kendaraan
+- Hasil Konsultasi
+
+## 📂 Struktur Project
+
+Project ini dikembangkan menggunakan framework Laravel dengan struktur utama:
+
+```text
+AutoExpert/
+├── app/
+├── bootstrap/
+├── config/
+├── database/
+├── public/
+├── resources/
+├── routes/
+├── storage/
+├── tests/
+├── artisan
+├── composer.json
+└── package.json
