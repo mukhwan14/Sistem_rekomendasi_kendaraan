@@ -142,3 +142,29 @@ AutoExpert/
 ├── artisan
 ├── composer.json
 └── package.json
+
+git clone https://github.com/mukhwan14/Sistem_rekomendasi_kendaraan.git
+cd Sistem_rekomendasi_kendaraan
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
+npm run dev
+
+---
+
+## 2. Ada beberapa bagian yang sengaja kita buat bertahap
+
+Perhatikan bagian:
+
+```markdown
+## 📷 Tampilan Sistem
+
+Screenshot aplikasi akan ditambahkan pada bagian ini
+<img width="1600" height="900" alt="Dashboard" src="https://github.com/user-attachments/assets/9cd42a27-ceff-48f2-8488-4be46d3a56fe" />
+<img width="1600" height="900" alt="Halaman Utama" src="https://github.com/user-attachments/assets/a5265e5b-c506-4c86-aabe-00bb2591e78a" />
+
+
+
